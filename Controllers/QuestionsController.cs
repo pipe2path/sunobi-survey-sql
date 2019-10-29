@@ -24,13 +24,13 @@ namespace survey.Controllers
 
         //[NoCache]
         [HttpGet]
-        public IEnumerable<Question> Get()
+        public IEnumerable<QuestionWithChoices> Get()
         {
             return _questionsRepository.GetQuestions();
         }
 
         [HttpGet("{id}")]
-        public Question Get(int id)
+        public QuestionWithChoices Get(int id)
         {
             return _questionsRepository.GetQuestionById(id);
         }

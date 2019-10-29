@@ -22,7 +22,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.SurveyResponses.ToList();
+                return _context.SurveyResponse.ToList();
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace survey.Data
         {
             try
             {
-                await _context.SurveyResponses.AddAsync(item);
+                await _context.SurveyResponse.AddAsync(item);
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace survey.Data
         {
             try
             {
-                await _context.UserResponses.AddAsync(user);
+                await _context.UserResponse.AddAsync(user);
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace survey.Data
         {
             try
             {
-                await _context.UserCoupons.AddAsync(userCoupon);
+                await _context.UserCoupon.AddAsync(userCoupon);
             }
             catch (Exception ex)
             {

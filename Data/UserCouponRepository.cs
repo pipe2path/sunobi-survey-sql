@@ -20,7 +20,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.UserCoupons.ToList();
+                return _context.UserCoupon.ToList();
             }
             catch (Exception ex)
             {
@@ -30,7 +30,7 @@ namespace survey.Data
 
         public UserCoupon GetUserCoupon(int userId)
         {
-            return _context.UserCoupons.FirstOrDefault(c => c.responseUserId == userId);
+            return _context.UserCoupon.FirstOrDefault(c => c.responseUserId == userId);
         }
 
         public int CreateCouponCode(int code)
@@ -38,7 +38,7 @@ namespace survey.Data
             try
             {
                 var returnCode = 0;
-                UserCoupon couponCode = _context.UserCoupons.FirstOrDefault(r => r.couponCode == code);
+                UserCoupon couponCode = _context.UserCoupon.FirstOrDefault(r => r.couponCode == code);
                 if (couponCode != null)
                     returnCode = couponCode.userCouponId;
 

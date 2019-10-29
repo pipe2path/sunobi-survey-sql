@@ -22,7 +22,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.UserResponses.ToList();
+                return _context.UserResponse.ToList();
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.UserResponses.FirstOrDefault(p => p.userPhone == phone);
+                return _context.UserResponse.FirstOrDefault(p => p.userPhone == phone);
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace survey.Data
             try
             {
                 // get a join of responseUser and couponcode based on userid
-                IEnumerable<UserCoupon> userCoupons = _context.UserCoupons.ToList();
+                IEnumerable<UserCoupon> userCoupons = _context.UserCoupon.ToList();
 
                 // only return users who have not been sent a message in the last 15 days
                 List<UserCoupon> filteredUsers = new List<UserCoupon>();
@@ -58,7 +58,7 @@ namespace survey.Data
                 foreach (UserCoupon u in userCoupons)
                 {
                     var userId = u.responseUserId;
-                    msgSent = (from m in _context.Messages.AsQueryable()
+                    msgSent = (from m in _context.Message.AsQueryable()
                                where m.userId == userId
                                select m).FirstOrDefault();
 

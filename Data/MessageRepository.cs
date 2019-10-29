@@ -22,7 +22,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.Messages.ToList();
+                return _context.Message.ToList();
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace survey.Data
         {
             try
             {
-                IEnumerable<Message> messages = _context.Messages.Where(u => u.userId == id).ToList();
+                IEnumerable<Message> messages = _context.Message.Where(u => u.userId == id).ToList();
                 return messages.OrderByDescending(x => x.dateLastTextSent).ToList();
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace survey.Data
         {
             try
             {
-                await _context.Messages.AddAsync(item);
+                await _context.Message.AddAsync(item);
             }
             catch (Exception ex)
             {

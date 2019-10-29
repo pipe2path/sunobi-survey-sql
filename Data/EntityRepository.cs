@@ -22,7 +22,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.Entities.ToList();
+                return _context.Entity.ToList();
             }
             catch (Exception ex)
             {
@@ -34,7 +34,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.Entities.FirstOrDefault(e => e.entityId == id);
+                return _context.Entity.FirstOrDefault(e => e.entityId == id);
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace survey.Data
         {
             try
             {
-                _context.Entities.Update(item);
+                _context.Entity.Update(item);
                 await _context.SaveChangesAsync();
 
                 return true;

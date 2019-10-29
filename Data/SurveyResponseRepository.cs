@@ -20,7 +20,7 @@ namespace survey.Data
         {
             try
             {
-                return _context.SurveyResponses.ToList();
+                return _context.SurveyResponse.ToList();
             }
             catch (Exception ex)
             {
@@ -33,7 +33,7 @@ namespace survey.Data
             try
             {
                 if (item != null)
-                    _context.SurveyResponses.Add(item);
+                    _context.SurveyResponse.Add(item);
                 return true;
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace survey.Data
             try
             {
                 if (user != null)
-                    _context.UserResponses.Add(user);
+                    _context.UserResponse.Add(user);
                 return true;
             }
             catch(Exception ex)
@@ -61,7 +61,7 @@ namespace survey.Data
             try
             {
                 if (code != null)
-                    _context.UserCoupons.Add(code);
+                    _context.UserCoupon.Add(code);
                 return true;
             }
             catch(Exception ex)

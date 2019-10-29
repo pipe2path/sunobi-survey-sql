@@ -8,7 +8,7 @@ namespace survey.Interfaces
 {
     public interface IQuestionRepository
     {
-        IEnumerable<Question> GetQuestions();
-        Question GetQuestionById(int id);
+        IEnumerable<QuestionWithChoices> GetQuestions();
+        QuestionWithChoices GetQuestionById(int id);
     }
 }
