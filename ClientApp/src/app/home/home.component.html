@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="img-container">
+    <img [src]="imageSrc" class="center" />
+  </div>
+  <br />
+  <div *ngFor="let q of questions; let i = index;">
+    <h5>{{ q.questionDesc }}</h5>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" [class.active]="questions[i].activeChoice === j" (click)="onClick(i,j,c)" *ngFor="let c of q.choices; let j = index">
+        {{ c }}
+        <i class="fa fa-chevron-right"></i>
+      </li>
+    </ul>
+    <h3>&nbsp;</h3>
+  </div>
+
+  <div>
+    <h4>About You</h4>
+    <form>
+      <div class="form-group">
+        <input class="form-control" id="name" name="name" placeholder="Name" minlength="4"
+               [(ngModel)]="name" #name1="ngModel">
+      </div>
+      <br />
+      <div class="form-group">
+        <input class="form-control" id="email" name="email" placeholder="Email"
+               email type="email" [(ngModel)]="email" #eml="ngModel">
+
+        <div *ngIf="eml.invalid && (eml.dirty || eml.touched)" class="alert-msg">
+          <div *ngIf="eml.errors.email">Please input valid email</div>
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <input class="form-control" id="phone" name="phone" placeholder="Phone"
+               type="tel" [(ngModel)]="phone" #phn="ngModel" minlength="10">
+
+        <div *ngIf="phn.invalid && (phn.dirty || phn.touched)" class="alert-msg">
+          <div *ngIf="phn.errors.minlength">Please input valid phone number</div>
+        </div>
+      </div>
+      <br />
+      <label class="offer">Enter phone number for 5 FREE WINGS!</label>
+      <br />
+      <terms-and-conditions-modal></terms-and-conditions-modal>
+      <div class="custom-control custom-checkbox optin">
+        <input type="checkbox" name="optIn" id="optIn" [(ngModel)]="optIn" class="custom-control-input" />
+        <label class="custom-control-label" for="optIn">I agree to receive 1 message per month</label>
+      </div>
+      <br />
+      <div class="form-group">
+        <input type="button" [disabled]="!submitBtnState()" class="btn btn-primary btn-lg btn-block" value="Submit" (click)="onSubmit()" />
+      </div>
+      <br>
+    </form>
+  </div>
+</div>
